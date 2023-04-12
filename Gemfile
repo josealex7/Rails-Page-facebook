@@ -42,8 +42,23 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+gem "devise"
+
+# Use jquery as the JavaScript librar
+gem 'jquery-rails'
+
+gem 'bootstrap', '~> 5.2', '>= 5.2.3'
+
+gem 'devise-bootstrap-views', '~> 1.1'
+
+# Use jquery-ui for pretty UI
+gem 'jquery-ui-rails'
+
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
+
+gem "font-awesome-rails"
+
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
