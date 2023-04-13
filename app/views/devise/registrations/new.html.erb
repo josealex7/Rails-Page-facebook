@@ -1,0 +1,69 @@
+<div class="container d-flex align-items-center vh-100">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-8 col-lg-6">
+      <div class="">
+          <div class="">
+            <h1 class="custom-font-size-title">Facebook</h1>
+            <p class="custom-font-size">Facebook te ayuda a comunicarte y compartir con las personas que forman parte de tu vida.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 col-lg-4">
+        <div class="card my-3">
+          <div class="card-body">
+            <h3 class="">Registrarte</h3>
+            <p>Es rápido y fácil.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+
+            <div class="field my-3">
+                <%= f.text_field :first_name, class: "form-control", autofocus: true, autocomplete: "first name", placeholder:"Nombre" %>
+            </div>
+
+            <div class="field my-3">
+                <%= f.text_field :last_name, class: "form-control", autofocus: true, autocomplete: "last name", placeholder:"Apellido" %>
+            </div>
+
+            <div class="field my-3">
+                <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email", placeholder:"Correo electrónico" %>
+            </div>
+           
+            <div class="field my-3">
+              <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder:"Contraseña nueva (6 characters minimum)" %>
+            </div>
+
+            <div class="field my-3">
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder:"Repetir contraseña" %>
+            </div>
+
+            <div class="field">
+              <%= f.label "Fecha de nacimiento", class:"m-1" %><br />
+              <%= f.date_field :birthday, min: 100.years.ago, max: Date.current, class: "form-control" %>
+            </div>
+
+            <div class="field">
+              <%= f.label "Genero", class:"m-1" %><br />
+              <%= f.select :sex, [["Personalizado", "x"],["Hombre", "m"], ["Mujer", "f"]], {}, class: "form-control" %>
+            </div>
+
+            <div class="form-group my-3">
+              <%= f.submit "Registrarte", class: "btn btn-primary btn-block form-control" %>
+            </div>
+          <% end %>
+          </div>
+        </div>
+        <div class="card my-3">
+          <div class="card-body">
+            <p class="text-center">¿Ya tienes una cuenta?</p>
+            <div class="text-center">
+              <%= render "devise/shared/links" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

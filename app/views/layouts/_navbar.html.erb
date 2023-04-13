@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-light border-secondary shadow-sm">
+  <div class="container-fluid d-flex ">
+    <a class="navbar-brand logo-navbar" href="#">Facebook</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+        <form class="d-flex mx-3">
+            <div class="input-group">
+                <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+                <input class="form-control" type="search" placeholder="Buscar en Facebook" aria-label="Search">
+            </div>
+        </form>
+        <div>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown mx-2">
+                    <a class="nav-link rounded-circle bg-light p-3" href="#" id="messeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-envelope"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="messeDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown mx-2">
+                    <a class="nav-link rounded-circle bg-light p-3" href="#" id="notifiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-bell"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notifiDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown mx-2">
+                    <a class="nav-link dropdown-toggle  rounded-circle bg-light p-3" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-user"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><%= link_to("Cerrar sesión", destroy_user_session_path,
+                            class: "btn btn-danger logout-button dropdown-item", method: :delete)%>
+                        </li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+  </div>
+</nav>
