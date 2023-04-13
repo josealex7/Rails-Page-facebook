@@ -10,10 +10,22 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-light">
     <% if user_signed_in?%>
       <%= render 'layouts/navbar'%>
     <% end %>
-    <%= yield %>
+    <% if user_signed_in?%>
+     <div class="row">
+      <div class="col-md-3 float-left">
+        <%= render 'layouts/sider_left' %>
+      </div>
+      <div class="col-md-9">
+        <%= yield %>
+      </div>
+    </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
+    
   </body>
 </html>
