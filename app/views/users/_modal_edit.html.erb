@@ -1,0 +1,13 @@
+<div class="modal fade" id="editUser" tabindex="-1" aria-labelledby="editUserLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editUserLabel">Editar perfil</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render 'devise/registrations/edit', resource: @user, resource_name: :user,  devise_mapping: Devise.mappings[:user]%>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<% if @friends %>
+  <div class="card card-header results-block bg-white shadow">
+      <table>
+        <tbody>
+          <% @friends.each do |friend| %>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center my-2">
+                            <% if friend.image_profile_id %>
+                                <%= image_tag Image.find( friend.image_profile_id).url, class:"profile-image-icon" %>
+                                <span class="fs-5 mx-2"><%= friend.full_name %></span>
+                            <% else %>
+                                <i class="fa fa-user fa-2x mx-2"></i>
+                                <span class="fs-5 mx-2"><%= friend.full_name %></span>
+                            <% end %>
+                        </div>
+                        <div>
+                            <%= link_to "Ver Perfil", user_path(friend),
+                                    class: "btn btn-sm btn-success" %>
+                            <% if current_user.not_friends_with?(friend.id) %>
+                                <%= link_to 'Seguir amigo', friendships_path(friend: friend),
+                                            class: "btn btn-sm btn-success", method: :post %>
+                            <% else %>
+                                <div class="badge badge-added">
+                                You are friends
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+<% end %>
