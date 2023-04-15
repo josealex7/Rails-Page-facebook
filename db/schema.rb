@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_13_035031) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_15_033211) do
+  create_table "friendships", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+    t.index ["user_id"], name: "index_friendships_on_user_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "url", default: "", null: false
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_images_on_user_id"
+  end
+
+  create_table "publications", force: :cascade do |t|
+    t.string "description"
+    t.integer "user_id"
+    t.integer "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["image_id"], name: "index_publications_on_image_id"
+    t.index ["user_id"], name: "index_publications_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -32,9 +60,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_035031) do
     t.string "sex"
     t.string "first_name"
     t.string "last_name"
+    t.bigint "image_profile_id"
+    t.bigint "image_portada_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["image_portada_id"], name: "index_users_on_image_portada_id"
+    t.index ["image_profile_id"], name: "index_users_on_image_profile_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "friendships", "users"
+  add_foreign_key "friendships", "users", column: "friend_id"
+  add_foreign_key "images", "users"
+  add_foreign_key "publications", "users"
 end
