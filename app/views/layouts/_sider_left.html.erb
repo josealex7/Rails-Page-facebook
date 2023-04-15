@@ -1,12 +1,17 @@
 <div class="d-flex flex-column flex-shrink-0 p-4" style="width: 100%;">
-  <a href="/" class="d-flex align-items-center my-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+  <%= link_to root_path, class:"d-flex align-items-center my-3 mb-md-0 me-md-auto link-dark text-decoration-none" do %>
     <i class="fa fa-home fa-2x text-primary mx-2"></i>
     <span class="fs-5 mx-2">Inicio</span>
-  </a>
-  <a href="/" class="d-flex align-items-center mb-md-0 me-md-auto link-dark text-decoration-none my-3 mx-1">
-    <i class="fa fa-user fa-2x mx-2"></i>
-    <span class="fs-5 mx-2">Perfil</span>
-  </a>
+  <% end %>
+  <%= link_to user_path(current_user), class: "d-flex align-items-center mb-md-0 me-md-auto link-dark text-decoration-none my-3 mx-1" do %>
+    <% if current_user.image_profile_id %>
+        <%= image_tag Image.find( current_user.image_profile_id).url, class:"profile-image-icon" %>
+        <span class="fs-5 mx-2"><%= current_user.full_name %></span>
+    <% else %>
+        <i class="fa fa-user fa-2x mx-2"></i>
+        <span class="fs-5 mx-2"><%= current_user.full_name %></span>
+    <% end %>
+  <%end%>
   <hr>
   <a href="/" class="d-flex align-items-center my-3 mb-md-0 me-md-auto link-dark text-decoration-none mx-2">
     <i class="fa fa-play-circle fa-2x text-primary"></i>

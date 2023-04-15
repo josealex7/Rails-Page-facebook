@@ -12,9 +12,7 @@
 
   <body class="bg-light">
     <% if user_signed_in?%>
-      <%= render 'layouts/navbar'%>
-    <% end %>
-    <% if user_signed_in?%>
+    <%= render 'layouts/navbar'%>
      <div class="row">
       <div class="col-md-3 float-left">
         <%= render 'layouts/sider_left' %>
@@ -26,6 +24,5 @@
     <% else %>
       <%= yield %>
     <% end %>
-    
   </body>
 </html>

@@ -1,0 +1,14 @@
+<%= form_tag "search_friend", remote: true, method: :get do %>
+    <div class='d-flex mx-3'>
+        <div class="input-group">
+            <%= button_tag type: :submit, class: "btn btn-primary" do %>
+                <i class="fa fa-search"></i>
+            <% end %>
+            <%= text_field_tag :friend, params[:friend], placeholder: "Buscar en Facebook", 
+                            autofocus: true, class: "form-control" %>
+        </div>
+    </div>
+<% end %>
+<div id="friend-results">
+
+</div>

@@ -4,18 +4,13 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-        <form class="d-flex mx-3">
-            <div class="input-group">
-                <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-                <input class="form-control" type="search" placeholder="Buscar en Facebook" aria-label="Search">
-            </div>
-        </form>
+    <div class="collapse navbar-collapse justify-content-between justify-align-items" id="navbarSupportedContent">
+        <%= render 'layouts/search_friends'%>
         <div>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown mx-2">
                     <a class="nav-link rounded-circle bg-light p-3" href="#" id="messeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-envelope"></i>
+                        <i class="fa fa-envelope" style="transform: scale(1.5);"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="messeDropdown">
                         <li><a class="dropdown-item" href="#">Action</a></li>
@@ -26,7 +21,7 @@
                 </li>
                 <li class="nav-item dropdown mx-2">
                     <a class="nav-link rounded-circle bg-light p-3" href="#" id="notifiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-bell"></i>
+                        <i class="fa fa-bell" style="transform: scale(1.5);"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notifiDropdown">
                         <li><a class="dropdown-item" href="#">Action</a></li>
@@ -36,8 +31,12 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown mx-2">
-                    <a class="nav-link dropdown-toggle  rounded-circle bg-light p-3" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-user"></i>
+                    <a class="nav-link dropdown-toggle  rounded-circle bg-light p-2 my-1" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <% if current_user.image_profile_id %>
+                            <%= image_tag Image.find( current_user.image_profile_id).url, class:"profile-image-icon" %>
+                        <% else %>
+                            <i class="fa fa-user"></i>
+                        <% end %>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                         <li><a class="dropdown-item" href="#">Action</a></li>
