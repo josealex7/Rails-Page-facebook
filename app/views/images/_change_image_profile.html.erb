@@ -1,0 +1,41 @@
+<button type="button" class="btn btn-link text-decoration-none add-image-button" data-bs-toggle="modal" data-bs-target="#loadImageProfile">
+    <div class="card">
+        <div class="card-body d-flex align-items-center justify-content-center">
+            <div><i class='fa fa-camera'></i></div>
+        </div>
+    </div>
+</button>
+
+<div class="modal fade" id="loadImageProfile" tabindex="-1" aria-labelledby="loadImageProfileLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="loadImageProfileLabel">Seleccionar foto de perfil</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <% if !@imagenes.empty?%>
+                <div class="row row-cols-1 row-cols-md-4 g-4">
+                    <% @imagenes.each do |imagen| %>
+                        <li class="col list-unstyled imagenPortada" id="<%= imagen.id %>">
+                        <%= image_tag imagen.url, class: "images-users-portada"%>
+                        </li>
+                    <% end %>
+                </div>
+            <% else %>
+                <h3>No hay foto para seleccionar</h3>
+                <p>Para cargar una imagen debes dirigirte a la opción fotos que se encuentra en el panel inferior</p>
+            <% end %>
+        </div>
+
+        <div class="modal-footer">
+            <% if !@imagenes.empty?%>
+                <%= form_tag('/users/update_image_profile', method: :put) do %>
+                    <%= hidden_field_tag(:portada_picture_id) %>
+                    <%= button_tag('Guardar cambios', class: 'btn btn-primary') %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+  </div>
+</div>

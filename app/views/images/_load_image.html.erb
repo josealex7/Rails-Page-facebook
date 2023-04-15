@@ -1,0 +1,22 @@
+<button type="button" class="btn btn-link p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#loadImage">
+      <div class="card card-load-image">
+        <div class="card-body d-flex align-items-center justify-content-center flex-column">
+          <i class='fa fa-plus fa-2x'></i> 
+          <div>Cargar foto</div>
+        </div>
+      </div>
+</button>
+
+<div class="modal fade" id="loadImage" tabindex="-1" aria-labelledby="loadImageLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loadImageLabel">Cargar imagen</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render 'images/new'%>
+      </div>
+    </div>
+  </div>
+</div>

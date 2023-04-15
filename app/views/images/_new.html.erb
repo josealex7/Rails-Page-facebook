@@ -1,0 +1,11 @@
+<%= form_tag images_path, method: :post, multipart: true, class: "form-inline" do %>
+  <div class="form-group">
+    <%= label_tag :name, "Nombre" %>
+    <%= text_field_tag :name, nil, class: "form-control" %>
+  </div>
+  <div class="my-3">
+    <label for="formFile" class="form-label">Selecciona una imagen</label>
+    <%= file_field_tag 'image[url]', class: "form-control", type: "file", id:"formFile" %>
+  </div>
+  <%= submit_tag "Cargar imagen", class: "btn btn-primary" %>
+<% end %>
