@@ -1,0 +1,84 @@
+.cover-photo-container {
+  position: relative;
+}
+
+.add-image-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+}
+.container-user-photo{
+    margin-top: -3rem;
+    margin-bottom: -1rem;
+}
+
+.links-perfil li{
+        margin: 8px 10px;
+}
+
+.nav-item a{
+    color: rgb(71, 71, 71) !important;
+}
+
+.user-image {
+    max-height: 400px;
+    object-fit: cover;
+  }
+
+.profile-image{
+    width: 200px; /* Ancho deseado */
+    height: 200px; /* Alto deseado */
+    object-fit: cover; /* Para que la imagen cubra todo el contenedor sin distorsionarse */
+    border-radius: 50%; /* Para que el borde sea un círculo */
+    position: relative;
+    z-index: 3;
+}
+
+.images-users{
+  width: 240px; /* Ancho deseado */
+  height: 240px; /* Alto deseado */
+  object-fit: cover; /* Para que la imagen cubra todo el contenedor sin distorsionarse */
+
+}
+
+.card-load-image{
+  width: 240px; height: 240px;
+}
+
+.images-users-portada{
+  width: 100px; /* Ancho deseado */
+  height: 100px; /* Alto deseado */
+  object-fit: cover; /* Para que la imagen cubra todo el contenedor sin distorsionarse */
+}
+
+.div-change-profile .card-load-image{
+  width: 100px; /* Ancho deseado */
+  height: 100px; /* Alto deseado */
+}
+
+.selected img{
+  border: 5px solid rgba(49, 127, 230, 0.863);
+  box-shadow: 4px;
+}
+
+.images-user-publicaciones{
+  width: 135px; /* Ancho deseado */
+  height: 135px; /* Alto deseado */
+  object-fit: cover; /* Para que la imagen cubra todo el contenedor sin distorsionarse */
+}
+
+.image-friends-publish{
+  width: 135px; /* Ancho deseado */
+  height: 135px; /* Alto deseado */
+  object-fit: cover; /* Para que la imagen cubra todo el contenedor sin distorsionarse */
+}
+
+.links-perfil .nav-item.active {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.nav-item.active a{
+  color: white !important;
+}
