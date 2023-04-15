@@ -1,0 +1,36 @@
+<%= render 'users/profile', locals: { user: @user } %>
+
+<div class="container bg-white my-4 p-4">
+  <h2 class="mx-4 mt-3 mb-4 px-2">Amigos</h2>
+  <hr>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <% @user.friends.each do |friend| %>
+      <div class="col">
+        <div class="d-flex align-items-center">
+            <% if friend.image_profile_id %>
+                <%= image_tag Image.find(friend.image_profile_id).url, class: "image-friends" %>
+            <% else %>
+                <img src="https://via.placeholder.com/200" alt="Profile photo" class="image-friends">
+            <% end %>
+            
+            <div>
+                <label class=""><strong>Nombre Completo: </strong><%= friend.full_name %></label>
+                <div class="my-2">
+                    <label class=""><strong>Cumpleaños: </strong><%= friend.birthday %></label>
+                </div>
+                <div class="my-2">
+                    <label class=""><strong>Genero: </strong><%= friend.sex == 'f' ? 'Mujer' : (friend.sex == 'm' ? 'Hombre': 'No especificado' ) %></label>
+                </div>
+                <div class="my-2">
+                    <%= link_to "Ver Perfil", user_path(friend),
+                                        class: "btn btn-sm btn-success" %>
+                </div>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<%= render 'users/modal_edit'%>
