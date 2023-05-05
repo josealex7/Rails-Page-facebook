@@ -1,8 +1,27 @@
 <h3>Detalles</h3>
 <nav class="flex-column">
-    <div><label><strong>Nombre completo:</strong> <%= @user.full_name %></label></div>
-    <div><label><strong>Fecha de cumpleaños:</strong> <%= @user.birthday %></label></div>
-    <div><label><strong>Genero:</strong> <%= @user.sex == 'f' ? 'Mujer' : (@user.sex == 'm' ? 'Hombre': 'No especificado') %></label></div>
-    <div><label><strong>Fecha de cumpleaños:</strong> <%= @user.birthday %></label></div>
+    <div><label><strong><%= @user.user_type != 'page'? 'Nombre completo' : 'Nombre de la pagina'%>:</strong> <%= @user.user_type != 'page'? @user.full_name : @user.first_name %></label></div>
+    <%if @user.user_type != 'page'%>
+        <div>
+            <label>
+                <strong>Fecha de cumpleaños:</strong> 
+                <%= @user.birthday %>
+            </label>
+        </div>
+    <% else %>
+        <div>
+            <label>
+                <strong>Url pagina:</strong> 
+                <%= @user.last_name %>
+            </label>
+        </div>
+        <div>
+            <label>
+                <strong>Correo de contacto:</strong> 
+                <%= @user.email %>
+            </label>
+        </div>
+    <% end %>
+    <div><label><strong><%= @user.user_type != 'page'? 'Genero' : 'Tipo' %>:</strong> <%= @user.type_gender %></label></div>
     <div><label><strong>Segidores:</strong> <%= @user.friends.count %></label></div>
 </nav>
