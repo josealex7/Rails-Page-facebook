@@ -1,0 +1,39 @@
+<ul class="dropdown-menu dropdown-menu-end p-3 menu-chats-navbar" aria-labelledby="messeDropdown">
+    <h4 class="ps-2">Chats</h4>
+    <li><hr class="dropdown-divider"></li>
+    <% @last_messages.values.take(6).each do |last_message| %>
+        <% if last_message %>
+        <% friend = last_message.sender_id == current_user.id ? User.find(last_message.receiver_id) : User.find(last_message.sender_id) %>
+        <%= link_to chat_friend_path(friend.id), class:"btn btn-light w-100 bg-white " do %>
+        
+        <li class="d-flex my-3 align-items-center">
+        <% if friend.image_profile_id %>
+            <%= image_tag Image.find( friend.image_profile_id).url, class:"messe-image-navbar me-1" %>
+            <div class="w-75  text-start">
+                <label class="fs-5 mx-2"><%= friend.user_type != 'page'? friend.full_name : friend.first_name %></label>
+                <% if last_message %>
+                    <div class="d-flex justify-content-between w-100 " style="height: 28px;">
+                    <label class="w-50  mx-2 text-muted overflow-hidden"><%= "Tu: " if last_message.sender == current_user  %><%= last_message.message %></label>
+                    <label class="w-50 mx-2 text-muted overflow-hidden"><%= time_ago_in_words(last_message.created_at) %></label>
+                    <div>
+                <% end %>
+            </div>
+        <% else %>
+            <i class="fa fa-user fa-2x me-3"></i>
+            <div>
+                <label class="fs-5 mx-2"><%= friend.user_type != 'page'? friend.full_name : friend.first_name %></label>
+                <% if last_message %>
+                    <%= last_message.message %>
+                <% end %>
+            </div>
+        <% end %>
+        </li>
+        <%end%>
+        <%end%>
+    <% end %>
+    <li><hr class="dropdown-divider"></li>
+    <li class="reset">
+        <%= link_to 'Ver todos los chats', chat_friend_path(@last_messages.first[0]), class:"text-reset btn btn-success w-100 text-dark"%>
+    </li>
+    
+</ul>
