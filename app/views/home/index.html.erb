@@ -7,13 +7,32 @@
         </div>
         <div class="d-flex flex-column flex-shrink-0 p-4 mx-5 my-4 bg-white rounded shadow" >
             <div>
-                <%= render 'home/share'%>
+                <%= render 'publications/share'%>
             </div>
         </div>
-        
+        <div class="d-flex flex-column flex-shrink-0 p-4 mx-5 my-4 bg-white rounded shadow" >
+            <%= render 'publications/publications_perfil'%>
+        </div>
     </div>
-    <div class="col-md-4">
-        holis
+    <div class="col-md-4 section-rigth-home" style="max-height: 90vh; overflow-y: scroll;">
+        <div class="d-flex flex-column flex-shrink-0 p-4 mx-5 my-4 bg-white rounded shadow" >
+            <div>
+                <%= render 'home/commercial'%>
+            </div>
+        </div>
+        <div class="d-flex flex-column flex-shrink-0 p-4 mx-5 my-4 bg-white rounded shadow" >
+            <div>
+                <%= render 'home/pages_user'%>
+            </div>
+        </div>
+        <div class="d-flex flex-column flex-shrink-0 p-4 mx-5 my-4 bg-white rounded shadow" >
+            <div>
+                <%= render 'home/birthday'%>
+            </div>
+        </div>
+        <div class="d-flex flex-column flex-shrink-0 p-4 mx-5 my-4 bg-white rounded shadow" >
+            <%= render 'messages/list_contacts'%>
+        </div>
     </div>
 </div>
 
