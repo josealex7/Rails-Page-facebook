@@ -1,7 +1,10 @@
 <div class="row row-cols-1 row-cols-md-5 g-4">
   <% @imagenes.each do |imagen| %>
+    <%publication_id = Publication.find_by(user:@user, image_id:imagen.id )%>
     <div class="col">
-      <%= image_tag imagen.url, class: "images-users" %>
+      <%= link_to publication_path(publication_id)do%>
+        <%= image_tag imagen.url, class: "images-users" %>
+      <% end %>
     </div>
   <% end %>
   <div class="col">
