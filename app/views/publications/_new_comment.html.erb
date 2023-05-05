@@ -1,0 +1,19 @@
+<div class="d-flex align-items-center">
+    <div class="">
+        <% if current_user.image_profile_id %>
+            <%= image_tag Image.find( current_user.image_profile_id).url, class:"image-icon-publi" %>
+        <% else %>
+            <i class="fa fa-user"></i>
+        <% end %>
+    </div>
+    <div class="ms-4 w-100">
+        <%= form_tag comment_publication_path(publication), method: :post, multipart: true do %>
+            <div class="d-flex align-items-center">
+                <%= text_area_tag :text_comment, nil, class: "form-control h-25", placeholder: "Agregar un comentario" %>
+                <%= button_tag "Enviar", class: "btn btn-success ms-1" %>
+            </div>
+        <% end %>
+    </div>
+</div>
+        
+    
