@@ -1,0 +1,11 @@
+<h4>Contactos</h4>
+<% current_user.friends.where(user_type: 'user').limit(30).each do |friend| %>
+    <%= link_to chat_friend_path(friend.id), class:"d-flex align-items-center my-1 mx-1 btn btn-light text-start" do %>
+        <% if friend.image_profile_id %>
+        <%= image_tag Image.find( friend.image_profile_id).url, class:"pages-image-icon" %>
+        <% else %>
+            <i class="fa fa-user fa-2x mx-2"></i>
+        <% end %>
+        <h6 class="mx-2"><%= friend.first_name  %></h6>
+    <% end %>
+<% end %>
