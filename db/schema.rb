@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_15_033211) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_05_022107) do
   create_table "friendships", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "friend_id"
@@ -20,6 +20,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_15_033211) do
     t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
+  create_table "histories", force: :cascade do |t|
+    t.integer "user_id"
+    t.text "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_histories_on_user_id"
+  end
+
   create_table "images", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "url", default: "", null: false
@@ -27,6 +35,42 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_15_033211) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_images_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.boolean "is_like"
+    t.integer "user_id"
+    t.integer "publication_id"
+    t.index ["publication_id"], name: "index_likes_on_publication_id"
+    t.index ["user_id", "publication_id"], name: "index_likes_on_user_id_and_publication_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "main_comments", force: :cascade do |t|
+    t.text "text_comment", null: false
+    t.integer "publication_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["publication_id"], name: "index_main_comments_on_publication_id"
+    t.index ["user_id"], name: "index_main_comments_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "message"
+    t.integer "sender_id", null: false
+    t.integer "receiver_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "publication_shares", force: :cascade do |t|
+    t.integer "publication_id", null: false
+    t.integer "publicationshare_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["publication_id"], name: "index_publication_shares_on_publication_id"
+    t.index ["publicationshare_id"], name: "index_publication_shares_on_publicationshare_id"
   end
 
   create_table "publications", force: :cascade do |t|
@@ -39,9 +83,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_15_033211) do
     t.index ["user_id"], name: "index_publications_on_user_id"
   end
 
+  create_table "userpages", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "userpage_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_userpages_on_user_id"
+    t.index ["userpage_id"], name: "index_userpages_on_userpage_id"
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "email", default: "page@gmail.com", null: false
+    t.string "encrypted_password", default: "nopassword"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -60,8 +113,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_15_033211) do
     t.string "sex"
     t.string "first_name"
     t.string "last_name"
-    t.bigint "image_profile_id"
-    t.bigint "image_portada_id"
+    t.integer "image_profile_id"
+    t.integer "image_portada_id"
+    t.string "user_type", default: "user", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["image_portada_id"], name: "index_users_on_image_portada_id"
@@ -71,6 +125,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_15_033211) do
 
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
+  add_foreign_key "histories", "users"
   add_foreign_key "images", "users"
+  add_foreign_key "publication_shares", "publications"
+  add_foreign_key "publication_shares", "publications", column: "publicationshare_id"
   add_foreign_key "publications", "users"
+  add_foreign_key "userpages", "users"
+  add_foreign_key "userpages", "users", column: "userpage_id"
 end
