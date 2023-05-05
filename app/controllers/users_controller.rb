@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     
     def my_friends
         @friends = current_user.friends
-      end
+    end
 
     def fotos
         @user = User.find(params[:id])
@@ -15,11 +15,25 @@ class UsersController < ApplicationController
         @imagenes = @user.images
         render 'profile/friends'
     end
+
+    def pages
+        @user = User.find(params[:id])
+        @imagenes = @user.images
+        render 'profile/pages'
+    end
     
     def show
         @user = User.find(params[:id])
+        @publications = @user.publications.order(created_at: :desc)
         @imagenes = @user.images
-      end
+    end
+
+    def switch_user
+        user = User.find(params[:id])
+        sign_in(user, bypass: true)
+        redirect_to root_path, notice: "Has iniciado sesión como #{user.email}"
+    end
+    
 
     def search
         if params[:friend].present?
@@ -58,6 +72,5 @@ class UsersController < ApplicationController
             redirect_to user_path(current_user)
         end
     end
-    
 
 end
