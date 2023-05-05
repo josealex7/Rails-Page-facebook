@@ -1,0 +1,14 @@
+<h4>Cumpleaños</h4>
+<% if !current_user.birthday_today.blank? %>
+    <% current_user.birthday_today.each do |friend| %>
+       <div class="d-flex align-items-center">
+            <i class="fa fa-gift text-danger mx-2 my-2" style="transform: scale(2.0);"></i>
+            <label class="mx-2">Hoy es el cumpleaños de <%= friend.full_name %></label>
+        </div>
+    <% end %>
+<% else %>
+    <div class="d-flex align-items-center">
+        <i class="fa fa-gift text-danger mx-2 my-2" style="transform: scale(2.0);"></i>
+        <label class="mx-2">Hoy ninguno de tus amigos cumpleaños</label>
+    </div>
+<% end %>
