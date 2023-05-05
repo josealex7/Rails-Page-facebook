@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light border-secondary shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-light border-secondary shadow-sm sticky-top bg-white">
   <div class="container-fluid d-flex ">
     <a class="navbar-brand logo-navbar" href="#">Facebook</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,12 +12,7 @@
                     <a class="nav-link rounded-circle bg-light p-3" href="#" id="messeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-envelope" style="transform: scale(1.5);"></i>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="messeDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                    <%= render 'messages/list_friends' %>
                 </li>
                 <li class="nav-item dropdown mx-2">
                     <a class="nav-link rounded-circle bg-light p-3" href="#" id="notifiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -35,12 +30,49 @@
                         <% if current_user.image_profile_id %>
                             <%= image_tag Image.find( current_user.image_profile_id).url, class:"profile-image-icon" %>
                         <% else %>
-                            <i class="fa fa-user"></i>
+                            <img src="https://res.cloudinary.com/dxnn5sbsz/image/upload/v1682701927/16363_uqnjvu.png", class="profile-image-icon" />
                         <% end %>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <ul class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="userDropdown">
+                            <% if current_user.user_type != 'page' %>
+                                <% current_user.userpages.each do |page| %>
+                                    <h5 class="mt-2">Mis paginas</h5>
+                                    <% user = User.find(page.userpage_id) %>
+                                    <li>
+                                        <%= link_to switch_user_path(page.userpage_id), class:"dropdown-item " do %>
+                                            <div class="card d-flex align-items-center p-2">
+                                            <% if user.image_profile_id %>
+                                                <%= image_tag Image.find( user.image_profile_id).url, class:"profile-image-icon p-0" %>
+                                            <% else %>
+                                                <img src="https://res.cloudinary.com/dxnn5sbsz/image/upload/v1682701927/16363_uqnjvu.png", class="profile-image-icon p-0" />
+                                            <% end %>
+                                            <strong class="ms-2"> Cambiar a <%=user.first_name%></strong>
+                                            </div>
+                                        <% end %>
+                                    </li>
+
+                                <% end %>
+                            <% else %>
+                                <% current_user.find_users_by_userpage_id.each do |user_id| %>
+                                    <% user = User.find(user_id) %>
+                                    <h5 class="mt-2">Cambiar a</h5>
+                                    <li>   
+                                        <%= link_to switch_user_path(user_id), class:"dropdown-item" do %>
+                                            <div class="card d-flex align-items-center p-2">
+                                                <% if user.image_profile_id %>
+                                                    <%= image_tag Image.find( user.image_profile_id).url, class:"profile-image-icon" %>
+                                                <% else %>
+                                                    <img src="https://res.cloudinary.com/dxnn5sbsz/image/upload/v1682701927/16363_uqnjvu.png", class="profile-image-icon" />
+                                                <% end %>
+                                                <strong class="ms-2"><%=user.full_name%></strong>
+                                            </div>
+                                        <% end %>
+                                    </li>
+                                <% end %>
+                            <% end%>
+                        <li>
+                            <%= link_to 'Perfil', user_path(current_user), class:"dropdown-item my-1"%>
+                        </li>
                         <li><hr class="dropdown-divider"></li>
                         <li><%= link_to("Cerrar sesión", destroy_user_session_path,
                             class: "btn btn-danger logout-button dropdown-item", method: :delete)%>
