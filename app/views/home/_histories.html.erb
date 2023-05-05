@@ -1,47 +1,23 @@
 <h3>Historias</h3>
 <nav class="navbar navbar-expand-lg navbar-light">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <div class="container-fluid div-fluid-histories">
     <div class="collapse navbar-collapse" id="navbarNav">
+      
       <ul class="navbar-nav">
+        <% @histories.each do |history| %>
+        <% user = User.find(history.user_id) %>
         <li class="nav-item">
-          <a class="nav-link" href="#">
-            <img src="https://via.placeholder.com/150x150" class="img-fluid rounded-circle" alt="...">
-            <span>Nombre de usuario</span>
+          <a class="nav-link text-center " href="#">
+          <div class="contain-div-history">
+            <%= image_tag history.image_url, class:"image-history" %>
+            <div class="">
+              <label class="fs-5 mx-2 text-name-history"><%= user.user_type != 'page'? current_user.full_name : current_user.first_name %></label>
+            </div>
+          </div>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <img src="https://via.placeholder.com/150x150" class="img-fluid rounded-circle" alt="...">
-            <span>Nombre de usuario</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <img src="https://via.placeholder.com/150x150" class="img-fluid rounded-circle" alt="...">
-            <span>Nombre de usuario</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <img src="https://via.placeholder.com/150x150" class="img-fluid rounded-circle" alt="...">
-            <span>Nombre de usuario</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <img src="https://via.placeholder.com/150x150" class="img-fluid rounded-circle" alt="...">
-            <span>Nombre de usuario</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <img src="https://via.placeholder.com/150x150" class="img-fluid rounded-circle" alt="...">
-            <span>Nombre de usuario</span>
-          </a>
-        </li>
+      
+        <% end %>
       </ul>
     </div>
   </div>
