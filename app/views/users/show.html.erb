@@ -1,7 +1,7 @@
 <%= render 'profile', locals: { user: @user } %>
 <div class="container bg-white my-4 p-4">
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-5 section-left-profile">
             <div class="d-flex flex-column flex-shrink-0 p-4 mx-2 my-4 bg-white rounded shadow" >
                 <div>
                     <%= render 'profile/details'%>
@@ -19,20 +19,30 @@
             <div class="d-flex flex-column flex-shrink-0 p-3 mx-2 my-4 bg-white rounded shadow" >
                 <div class="mt-2" >
                     <div class="d-flex justify-content-between mx-2">
-                        <h3>Amigos</h3>
-                        <%= link_to 'Ver todos los amigos', profile_friends_path, class: "btn btn-primary mb-3"%>
+                        <h3><%= @user.user_type != 'page' ? 'Amigos' : 'Paginas' %></h3>
+                        <%= link_to @user.user_type != 'page'? 'Ver todos los amigos': 'Ver todas las paginas', profile_friends_path, class: "btn btn-primary mb-3"%>
                     </div>
-                    <%= render 'profile/friends'%>
+                    <% if @user.user_type != 'page' %>
+                        <%=  render 'profile/friends'%>
+                    <% else %>
+                        <%= render 'profile/pages'%>
+                    <% end %>
                 </div>
             </div>
         </div>
         <div class="col-md-7">
-            <div class="d-flex flex-column flex-shrink-0 p-4 mx-2 my-4 bg-white rounded shadow" >
-                <div>
-                    <%= render 'home/share'%>
+            <% if @user == current_user %>
+                <div class="d-flex flex-column flex-shrink-0 p-4 mx-2 my-4 bg-white rounded shadow" >
+                    <div>
+                        <%= render 'publications/share'%>
+                    </div>
                 </div>
+            <% end %>
+            <div class="" >
+                <%= render 'publications/publications_perfil'%>
             </div>
         </div>
+        
     </div>
 </div>
 
