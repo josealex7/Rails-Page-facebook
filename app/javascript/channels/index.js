@@ -1,0 +1,1 @@
+import "channels/chatfriend_channel"
