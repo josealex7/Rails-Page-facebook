@@ -1,0 +1,59 @@
+.fa-times-circle {
+    color: white;
+  }
+
+.image-publications{
+    max-width: 90%;
+    object-fit: fill;
+    max-height: 100%;
+}
+
+.nav-publications{
+    justify-content: flex-end !important;
+}
+
+.nav-publications li{
+    margin: 0.2rem 0.5rem -1rem;
+}
+
+.date-publication{
+    color: gray;
+    font-size: .9rem;
+}
+
+.name-publication{
+    margin-bottom: 0rem;
+}
+
+.size-icon-like-comments{
+    font-size: 1.5rem;
+}
+
+.section-left-sider{
+    position: sticky;
+    top: 75px;
+    max-height: 85vh;
+}
+
+.section-left-profile{
+    position: sticky;
+    top: -30rem;
+    max-height: 100vh;
+}
+
+.image-icon-publi{
+    width: 50px; /* Ancho deseado */
+    height: 50px; /* Alto deseado */
+    object-fit: cover; /* Para que la imagen cubra todo el contenedor sin distorsionarse */
+    border-radius: 50%; /* Para que el borde sea un círculo */
+}
+
+.publications-height{
+    object-fit: contain;
+    background-color: #a9a9a924;
+    max-height: 500px;
+}
+
+.font-size-publication{
+    font-size: 1.5rem;
+}
