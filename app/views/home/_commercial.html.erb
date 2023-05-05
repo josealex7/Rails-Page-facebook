@@ -1,0 +1,24 @@
+<div class="my-2">
+    <h5 class="mb-2">Publicidad</h5>
+    <div class="d-flex align-items-center my-4 cursor-pointer">
+        <div class="div-container-image-commer">
+            <img src=<%= current_user.user_type == 'page' ? "https://res.cloudinary.com/dxnn5sbsz/image/upload/v1682611344/luffycoca_qjswbf.jpg" : "https://res.cloudinary.com/dxnn5sbsz/image/upload/v1682611344/0849ec0ede7427c3f60894ce90c5d6b169a0ca43_hq_w2zwu1.jpg"%> alt="Cover photo" class="img-fluid-commer">
+        </div>
+        <div>
+            <p>
+                <%= current_user.user_type == 'page' ? 'Refresca tu día con la energía de Luffy y una Coca-Cola bien fría.' : ' ¡Solo un bocado y entenderás por qué es tan irresistible!' %>
+                
+            </p>
+        </div>
+    </div>
+    <div class="d-flex align-items-center my-4 cursor-pointer">
+        <div class="div-container-image-commer">
+            <img src=<%= current_user.user_type == 'page' ? "https://res.cloudinary.com/dxnn5sbsz/image/upload/v1682611344/crunchyroll-anime_q441hl.jpg" : "https://res.cloudinary.com/dxnn5sbsz/image/upload/v1682611344/saitamamatamosquitos_orizih.jpg" %> alt="Cover photo" class="img-fluid-commer">
+        </div>
+        <div>
+            <p> 
+                <%= current_user.user_type == 'page' ? '¡Disfruta de tus series de anime favoritas en alta calidad en Crunchyroll!' : 'Si incluso Saitama, el héroe más poderoso, necesita protección contra los mosquitos, ¡tú también la necesitas!' %>
+            </p>
+        </div>
+    </div>
+</div>
