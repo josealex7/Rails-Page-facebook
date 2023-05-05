@@ -1,0 +1,33 @@
+.image-history{
+    height: 180px;
+    width: 140px;
+    object-fit: cover;
+}
+
+.nav-item {
+    position: relative; /* establece la posición relativa para el contenedor */
+}
+  
+
+.contain-div-history{
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #f1f1f1;
+    overflow: hidden;
+    box-shadow: 4px 4px 10px rgba(137, 137, 137, 0.651);
+}
+
+.text-name-history {
+    overflow: hidden;
+    height: 23px;
+    font-size: 14px !important;
+    font-weight: bold;
+    margin-bottom: -4px;
+    margin-top: 4px;
+
+}
+
+.div-fluid-histories{
+    overflow-x: scroll;
+    width: 800px;
+}
