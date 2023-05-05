@@ -9,10 +9,10 @@
                         <div class="d-flex align-items-center my-2">
                             <% if friend.image_profile_id %>
                                 <%= image_tag Image.find( friend.image_profile_id).url, class:"profile-image-icon" %>
-                                <span class="fs-5 mx-2"><%= friend.full_name %></span>
+                                <span class="fs-5 mx-2"><%= friend.user_type != 'page' ? friend.full_name : friend.first_name %></span>
                             <% else %>
                                 <i class="fa fa-user fa-2x mx-2"></i>
-                                <span class="fs-5 mx-2"><%= friend.full_name %></span>
+                                <span class="fs-5 mx-2"><%= friend.user_type != 'page' ? friend.full_name : friend.first_name %></span>
                             <% end %>
                         </div>
                         <div>
