@@ -1,0 +1,29 @@
+<% @last_messages.each do |last_message| %>
+    <%friend = User.find(last_message[0])%>
+    <%= link_to chat_friend_path(last_message[0]), class:"btn btn-light " do %>
+    <div class="d-flex p-3 align-items-center ">
+        <% if friend.image_profile_id %>
+            <%= image_tag Image.find( friend.image_profile_id).url, class:"messe-image-navbar me-1" %>
+            <div class="w-75  text-start">
+                <label class="fs-5 ms-2 overflow-hidden"><%= friend.user_type != 'page'? friend.full_name : friend.first_name %></label>
+                <% if last_message[1] %>
+                    <div class="d-flex justify-content-between w-100" style="height: 28px;">
+                        <label class="w-50 mx-2 text-muted overflow-hidden"><%= "Tu: " if last_message[1].sender == current_user  %><%= last_message[1].message %></label>
+                        <label class="w-50 mx-2 text-muted overflow-hidden"><%= time_ago_in_words(last_message[1].created_at) %></label>
+                    </div>
+                <% else%>
+                    <label class="mx-2 text-muted overflow-hidden">Ahora estan conectados en facebook</label>
+                <% end %>
+            </div>
+        <% else %>
+            <i class="fa fa-user fa-2x me-3"></i>
+            <div>
+                <label class="fs-5 mx-2"><%= friend.user_type != 'page'? friend.full_name : friend.first_name %></label>
+                <% if last_message %>
+                    <%= last_message.message %>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+    <% end %>   
+<% end %>
