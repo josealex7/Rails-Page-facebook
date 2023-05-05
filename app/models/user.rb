@@ -1,4 +1,7 @@
+require 'date'
+
 class User < ApplicationRecord
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :images
@@ -6,8 +9,33 @@ class User < ApplicationRecord
   has_many :friendships
   has_many :friends, through: :friendships
 
+  has_many :userpages
+  has_many :pages, through: :userpages, source: :page
+
+  has_many :likes
+  has_many :main_comments
+
+  has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"
+  has_many :received_messages, class_name: "Message", foreign_key: "receiver_id"
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  MONTHS_ESP = {
+    "x" => "No especificado",
+    "f" => "Mujer",
+    "m" => "Hombre",
+    "o" => "Temas varios",
+    "e" => "Entretenimiento",
+    "c" => "Ciencia y Educación",
+    "d" => "Deportes",
+    "n" => "Noticias",
+  }
+
+  def type_gender
+    MONTHS_ESP[self.sex]
+  end
+
 
   def full_name
     return "#{first_name} #{last_name}" if first_name || last_name
@@ -43,6 +71,14 @@ class User < ApplicationRecord
 
   def not_friends_with?(id_of_friend)
     !self.friends.where(id: id_of_friend).exists?
+  end
+
+  def find_users_by_userpage_id
+    usersAdmin = Userpage.where(userpage_id: self.id).pluck(:user_id)
+  end
+
+  def birthday_today
+    self.friends.where("strftime('%m-%d', birthday) = ?", Date.today.strftime('%m-%d'))
   end
 
 end
