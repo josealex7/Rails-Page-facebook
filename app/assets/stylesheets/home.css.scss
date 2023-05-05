@@ -25,3 +25,45 @@
     border-radius: 5%;
     margin: 2rem;
 }
+
+.div-container-image-commer{
+    max-width: 55%;
+    margin-right: 1rem;
+}
+
+.img-fluid-commer{
+    width: 130px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10%;
+}
+
+.game-image-icon{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 10%;
+}
+
+.pages-image-icon{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 10%;
+}
+
+.menu-chats-navbar{
+    width: 450px;
+}
+
+.messe-image-navbar{
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.section-rigth-home{
+    position: sticky;
+    top: 75px
+}
