@@ -1,0 +1,25 @@
+<%= form_tag userpages_path, method: :post, multipart: true, class: "form-inline" do %>
+  <h4>Información para la pagina</h4>
+
+  <div class="field my-3">
+      <label>Nombre Pagina</label><br />
+      <%= text_field_tag :first_name, nil, class: "form-control my-2", placeholder:"my nombre de pagina" %>
+  </div>
+
+  <div class="field my-3">
+      <label>Url pagina</label> <br />
+      <%= text_field_tag :last_name, nil, class: "form-control", placeholder:"www.ejemplo.com" %>
+  </div>
+  <div class="field my-3">
+      <label>Correo</label><br />
+      <%= text_field_tag :email, nil, autocomplete: "email", class: "form-control", placeholder:"info@ejemplo.com" %>
+  </div>
+  <div class="field">
+      <label class="m-1">Tipo</label><br />
+      <%= select_tag :sex, options_for_select([["Otro", "o"], ["Deportes", "d"], ["Entretenimiento", "e"], ["Noticias", "n"], ["Ciencia y Educación", "c"]]), class: "form-control" %>
+  </div>
+
+  <div class="form-group my-3">
+    <%= submit_tag "Crear pagina", class: "btn btn-primary btn-block form-control" %>
+  </div>
+<% end %>
