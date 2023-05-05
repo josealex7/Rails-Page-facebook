@@ -14,10 +14,10 @@
     <% if user_signed_in?%>
     <%= render 'layouts/navbar'%>
      <div class="row">
-      <div class="col-md-3 float-left">
+      <div class="col-md-3  section-left-sider">
         <%= render 'layouts/sider_left' %>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-9 no-horizontal-scroll">
         <%= yield %>
       </div>
     </div>
