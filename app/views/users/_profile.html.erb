@@ -4,7 +4,10 @@
     <div class="col-md-12">
       <div class="cover-photo-container mb-3">
         <% if @user.image_portada_id %>
-            <%= image_tag Image.find( @user.image_portada_id).url, class:"img-fluid w-100 user-image" %>
+            <%publication_id = Publication.find_by(user:@user, image_id:@user.image_portada_id )%>
+            <%= link_to publication_path(publication_id )do%>
+              <%= image_tag Image.find( @user.image_portada_id).url, class:"img-fluid w-100 user-image" %>
+            <% end %>
         <% else %>
             <img src="https://via.placeholder.com/1200x400" alt="Cover photo" class="img-fluid w-100 ">
         <% end %>
@@ -19,13 +22,15 @@
   <div class="row container-user-photo">
     <div class="col-md-3 ">
       <div class="profile-photo-container mb-3 mx-4 d-flex align-items-end position-relative">
-          <%= link_to show_publication_path(@user,  image_id: @user.image_profile_id ), type:"button", class:"btn btn-link" do%>
-            <% if @user.image_profile_id %>
-                  <%= image_tag Image.find( @user.image_profile_id).url, class:" profile-image" %>
-            <% else %>
-                <img src="https://via.placeholder.com/200" alt="Profile photo" class="img-fluid rounded-circle">
+          <% if @user.image_profile_id %>
+            <%publication_id = Publication.find_by(user:@user, image_id:@user.image_profile_id )%>
+            <%= link_to publication_path(publication_id), type:"button", class:"btn btn-link" do%>
+              <%= image_tag Image.find( @user.image_profile_id).url, class:" profile-image" %>
             <% end %>
+          <% else %>
+              <img src="https://via.placeholder.com/200" alt="Profile photo" class="img-fluid rounded-circle">
           <% end %>
+          
           <div class="position-absolute bottom-0 end-0">
             <% if @user.id == current_user.id %>
               <%= render 'images/change_image_profile' %>
@@ -35,13 +40,20 @@
     </div>
     <div class="col-md-6 d-flex align-items-center ">
         <div class="card-body">
-          <h1 class="card-title"><%= @user.full_name%></h1>
-          <h6 class="card-text"><%= @user.friends.count %> Amigos</h6>
-          <div class="d-flex justify-content-start">
-            <% @user.friends.limit(8).each do |friend| %>
-                <%= image_tag Image.find(friend.image_profile_id).url, class: "rounded-circle friend-img" %>
-            <% end%>
-          </div>
+          <h1 class="card-title"><%= @user.user_type != 'page'? @user.full_name : @user.first_name%></h1>
+          <% if @user.user_type != 'page' %>
+            <h6 class="card-text"><%= @user.friends.count %> Amigos</h6>
+            <div class="d-flex justify-content-start">
+              <% @user.friends.limit(8).each do |friend| %>
+                  <% if friend.image_profile_id && friend.user_type != 'page' %>
+                      <%= image_tag Image.find(friend.image_profile_id).url, class: "rounded-circle friend-img" %>
+                  <% end %>
+              <% end%>
+            </div>
+          <% else %>
+            <h6 class="card-text"><%= @user.friends.count %> Seguidos</h6>
+          <% end %>
+          
         </div>
     </div>
     <div class="col-md-3 d-flex align-items-center">
@@ -50,7 +62,7 @@
                 <button type="button" class="btn btn-outline-primary">Agregar historia</button>
             </div>
             <div class="col-md-6">
-                <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#editUser">Editar perfil</button>
+                <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#editUser">Editar <%= @user.user_type != 'page'? 'perfil' : 'pagina'%></button>
             </div>
         <% else %>
             <div class="col-md-6">
@@ -72,20 +84,19 @@
         <li class="nav-item <%= 'active' if current_page?(user_path(@user)) %>">
           <%= link_to 'Publicaciones' ,user_path(@user), class: "nav-link "%>
         </li>
-        <li class="nav-item <%= 'active' if current_page?(profile_friends_path) %>">
-          <%= link_to 'Amigos', profile_friends_path, class: "nav-link"%>
-        </li>
+        <% if @user.user_type != 'page' %>
+          <li class="nav-item <%= 'active' if current_page?(profile_friends_path) %>">
+            <%= link_to 'Amigos', profile_friends_path, class: "nav-link"%>
+          </li>
+        <% end %>
         <li class="nav-item <%= 'active' if current_page?(profile_fotos_path) %>">
           <%= link_to 'Fotos', profile_fotos_path, class: "nav-link"%>
         </li>
+        <li class="nav-item <%= 'active' if current_page?(profile_pages_path) %>">
+            <%= link_to 'Paginas', profile_pages_path, class: "nav-link"%>
+          </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Paginas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Mis productos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Más</a>
+          <a class="nav-link" href="#">Tienda</a>
         </li>
       </ul>
     </div>
