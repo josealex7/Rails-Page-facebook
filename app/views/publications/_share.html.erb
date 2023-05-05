@@ -1,0 +1,31 @@
+<div class="card border-0 shadow-sm rounded-3">
+  <div class="card-body">
+    <div class="row g-3 align-items-center">
+      <div class="col-auto">
+        <% if current_user.image_profile_id %>
+            <%= image_tag Image.find( current_user.image_profile_id).url, class:"image-icon-publi" %>
+        <% else %>
+            <img src="https://res.cloudinary.com/dxnn5sbsz/image/upload/v1682701927/16363_uqnjvu.png", class="image-icon-publi" />
+
+        <% end %>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control border-0" placeholder="¿Qué estás pensando?" id="InputPublications">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalPublication" tabindex="-1" aria-labelledby="modalPublicationLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalPublicationLabel">Crear publicación</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render 'publications/new'%>
+      </div>
+    </div>
+  </div>
+</div>
