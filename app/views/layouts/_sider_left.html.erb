@@ -6,10 +6,10 @@
   <%= link_to user_path(current_user), class: "d-flex align-items-center mb-md-0 me-md-auto link-dark text-decoration-none my-3 mx-1" do %>
     <% if current_user.image_profile_id %>
         <%= image_tag Image.find( current_user.image_profile_id).url, class:"profile-image-icon" %>
-        <span class="fs-5 mx-2"><%= current_user.full_name %></span>
+        <span class="fs-5 mx-2"><%= current_user.user_type != 'page'? current_user.full_name : current_user.first_name %></span>
     <% else %>
         <i class="fa fa-user fa-2x mx-2"></i>
-        <span class="fs-5 mx-2"><%= current_user.full_name %></span>
+        <span class="fs-5 mx-2"><%= current_user.user_type != 'page'? current_user.full_name : current_user.first_name %></span>
     <% end %>
   <%end%>
   <hr>
@@ -21,18 +21,12 @@
     <i class="fa fa-building fa-2x text-primary"></i>
     <span class="fs-5 mx-2">Marketplace</span>
   </a>
-  <a href="/" class="d-flex align-items-center mb-md-0 me-md-auto link-dark text-decoration-none my-3 mx-1">
+  <%= link_to video_games_path, class:"d-flex align-items-center mb-md-0 me-md-auto link-dark text-decoration-none my-3 mx-1" do %>
     <i class="fa fa-gamepad fa-2x text-primary"></i>
     <span class="fs-5 mx-2">Videojuegos</span>
-  </a>
+  <% end %>
   <hr>
-  <a href="/" class="d-flex align-items-center mb-md-0 me-md-auto link-dark text-decoration-none my-3 mx-1">
-    <i class="fa fa-user fa-2x mx-2"></i>
-    <span class="fs-5 mx-2">Paginas que sigo</span>
-  </a>
+  <%= render 'home/list_follow_pages' %>
   <hr>
-  <a href="/" class="d-flex align-items-center mb-md-0 me-md-auto link-dark text-decoration-none my-3 mx-1">
-    <i class="fa fa-user fa-2x mx-2"></i>
-    <span class="fs-5 mx-2">Juegos</span>
-  </a>
+    <%= render 'home/list_games' %>
 </div>
