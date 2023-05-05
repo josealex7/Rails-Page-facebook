@@ -11,6 +11,13 @@ module FacebookApp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    Cloudinary.config do |config|
+      config.cloud_name = 
+      config.api_key = 
+      config.api_secret = 
+      config.secure = true
+    end
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
