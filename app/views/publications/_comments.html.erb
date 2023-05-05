@@ -1,0 +1,20 @@
+<% publication.main_comments.limit(commentLimit).each do |comment| %>
+    <div class="row d-flex align-items-center my-2">
+        <div class="col-auto">
+            <% if comment.user.image_profile_id %>
+                <%= image_tag Image.find( comment.user.image_profile_id).url, class:"image-icon-publi" %>
+            <% else %>
+                <i class="fa fa-user"></i>
+            <% end %>
+        </div>
+        <div class="col">
+            <div>
+                <label class="name-publication"><strong><%= comment.user.user_type != 'page' ? comment.user.full_name : comment.user.first_name %></strong></label>
+                <label class="date-publication"><%= comment.date_comment%></label>
+            </div>
+            <div>
+                <label><%= comment.text_comment %></label>
+            </div>
+        </div>
+    </div>
+ <% end %>
