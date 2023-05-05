@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="">
+        <div class="media">
+        <div class="d-flex align-items-center">
+        <div>
+        <% if current_user.image_profile_id %>
+            <%= image_tag Image.find( current_user.image_profile_id).url, class:"image-icon-publi" %>
+            
+        <% else %>
+            <img src="https://via.placeholder.com/50" class="mr-3 rounded-circle" alt="...">
+        <% end %>
+        </div>
+        <div></div>
+        <h5 class="my-4 mx-2"><%= current_user.user_type != 'page' ? current_user.full_name : current_user.first_name %></h5>
+        </div>
+        <%= form_tag publications_path, method: :post, multipart: true, class: "form-inline" do %>
+        <div class="form-group mt-3">
+        <%= text_area_tag :name, nil, class: "form-control h-25 border-0", placeholder:"¿Qué estás pensando?" %>
+        </div>
+        <div class="my-3">
+        <label for="formFile" class="form-label">Agregar una imagen</label>
+            <%= file_field_tag 'image[url]', class: "form-control", type: "file", id:"formFile" %>
+        </div>
+        <%= submit_tag "Publicar", class: "btn btn-primary w-100" %>
+        <% end %>
+    </div>
+    </div>
+</div>
