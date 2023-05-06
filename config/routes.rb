@@ -48,6 +48,8 @@ Rails.application.routes.draw do
 
   resources :messages, only: [:create]
 
+  resources :histories, only:[:create]
+
   mount ActionCable.server => '/cable'
   
   
