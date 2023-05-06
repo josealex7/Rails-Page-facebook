@@ -59,7 +59,8 @@
     <div class="col-md-3 d-flex align-items-center">
         <% if @user.id == current_user.id %>
             <div class="col-md-6">
-                <button type="button" class="btn btn-outline-primary">Agregar historia</button>
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#newHistoryModal">Agregar historia</button>
+                <%= render 'histories/modal_new' %>
             </div>
             <div class="col-md-6">
                 <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#editUser">Editar <%= @user.user_type != 'page'? 'perfil' : 'pagina'%></button>
