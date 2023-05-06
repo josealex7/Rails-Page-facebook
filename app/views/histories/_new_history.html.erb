@@ -1,0 +1,14 @@
+<li class="nav-item">
+    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#newHistoryModal">
+        <div class="contain-div-history">
+        <%= image_tag Image.find(current_user.image_profile_id).url, class:"image-history-new" %>
+            <div class="div-new-history">
+                <i class="fa fa-plus icon-plus-new"></i>
+                <label class="text-name-history history-label-new">Crear Historia</label>
+            </div>
+        </div>
+    </button>
+    
+</li>
+
+<%= render 'histories/modal_new'%>
