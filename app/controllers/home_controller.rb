@@ -2,7 +2,7 @@ class HomeController < ApplicationController
     def index
         @friends = current_user.friends
         @publications = Publication.where(user: [current_user] + @friends).where('created_at >= ?', 3.days.ago).order(created_at: :desc)
-        @histories = History.where(user: current_user)
+        @histories = History.where(user: [current_user] + @friends).where('created_At >= ?', 1.days.ago).order(created_at: :desc)
     end
 
     def load_more_publications
