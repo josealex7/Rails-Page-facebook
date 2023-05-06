@@ -1,0 +1,27 @@
+<h3>Historias</h3>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid div-fluid-histories">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      
+      <ul class="navbar-nav">
+        <%= render 'histories/new_history' %>
+        
+        <% @histories.each do |history| %>
+        <% user = User.find(history.user_id) %>
+        <li class="nav-item">
+          <button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="contain-div-history">
+              <%= image_tag history.image_url, class:"image-history" %>
+              <div class="">
+                <label class="fs-5 mx-2 text-name-history"><%= user.user_type != 'page'? user.full_name : user.first_name %></label>
+              </div>
+            </div>
+          </button>
+        </li>
+        <% end %>
+        
+      </ul>
+      <%= render 'histories/show' %>
+    </div>
+  </div>
+</nav>
