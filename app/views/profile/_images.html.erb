@@ -1,7 +1,0 @@
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <% @imagenes.limit(9).each do |imagen| %>
-    <div class="col">
-      <%= image_tag imagen.url, class: "images-user-publicaciones" %>
-    </div>
-  <% end %>
-</div>
