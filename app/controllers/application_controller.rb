@@ -25,6 +25,9 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit(:account_update, keys: [:sex, :birthday, :first_name, :last_name])
     end
 
-    
+    def upload_image_to_cloudinary
+      tempfile = params[:image][:url].tempfile
+      Cloudinary::Uploader.upload(tempfile.path)['secure_url']
+    end
 
 end
