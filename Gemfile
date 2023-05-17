@@ -90,3 +90,7 @@ end
 gem "will_paginate", '~> 3.3.1'
 
 gem 'actioncable'
+
+gem 'rest-client'
+
+gem 'stripe'
