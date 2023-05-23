@@ -124,6 +124,21 @@ $(document).on('turbo:load', function() {
   }
 });
 
+$(document).on('turbo:load', function() {
+  $('body').on('click', '#load_more_publication', function() {
+    $.ajax({
+      url: '/publications/load_more',
+      method: 'GET',
+      data: { page: 10 },
+      success: function(response) {
+        // Manejar la respuesta y mostrar los registros adicionales en la página
+      },
+      error: function() {
+        // Manejar el error si la solicitud no tiene éxito
+      }
+    });
+  });
+});
 
 import "./channels"
 window.scrollBottom = scrollBottom;
