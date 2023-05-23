@@ -6,7 +6,7 @@
       <ul class="navbar-nav">
         <%= render 'histories/new_history' %>
         
-        <% @histories.each do |history| %>
+        <% histories.each do |history| %>
         <% user = User.find(history.user_id) %>
         <li class="nav-item">
           <button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -21,7 +21,7 @@
         <% end %>
         
       </ul>
-      <%= render 'histories/show' %>
+      <%= render 'histories/show', histories: histories %>
     </div>
   </div>
 </nav>
