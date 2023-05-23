@@ -1,14 +1,17 @@
 <li class="nav-item">
-    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#newHistoryModal">
-        <div class="contain-div-history">
+  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#newHistoryModal">
+    <div class="contain-div-history">
+      <% if current_user.image_profile_id %>
         <%= image_tag Image.find(current_user.image_profile_id).url, class:"image-history-new" %>
-            <div class="div-new-history">
-                <i class="fa fa-plus icon-plus-new"></i>
-                <label class="text-name-history history-label-new">Crear Historia</label>
-            </div>
-        </div>
-    </button>
-    
+      <% else %>
+        <%= image_tag "https://res.cloudinary.com/dxnn5sbsz/image/upload/v1682701927/16363_uqnjvu.png", class:"messe-image-navbar me-1"%>
+      <% end %>
+      <div class="div-new-history">
+        <i class="fa fa-plus icon-plus-new"></i>
+        <label class="text-name-history history-label-new">Crear Historia</label>
+      </div>
+    </div>
+  </button>  
 </li>
 
 <%= render 'histories/modal_new'%>
