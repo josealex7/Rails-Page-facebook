@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="container py-2 px-4">
+      <div class="row rounded-lg overflow-hidden shadow">
+        <!-- Chat messages -->
+        <div class="col-12 px-0">
+          <div class="bg-light">
+            <div id="messages">
+              <%= render 'messages/message', user_friend: @user_friend, messages: @messages %>
+            </div>
+            <!-- Chat input -->
+            <%= form_with model: @message, url: messages_path, remote: true, class:"bg-white px-4 py-3" do |f| %>
+                <%= f.hidden_field :receiver_id, value: @user_friend.id %>
+                <div class="form-group d-flex">
+                  <%= f.text_field :message, id:"messages-input-#{@user_friend.id}", class:"form-control", placeholder:"Enviar mensaje"%>
+                  <%= f.button 'Enviar', class:"btn btn-primary"%>
+                </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4" >
+    <div class="container py-2 px-4" >
+        <div class="row rounded-lg shadow" style="max-height: 90vh; overflow-y: scroll;">
+          <%= render 'messages/list_all_friends', last_messages: @last_messages %>
+        </div>
+    </div>
+  </div>
+</div>
