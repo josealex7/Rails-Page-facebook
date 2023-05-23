@@ -1,0 +1,114 @@
+<div class="d-flex justify-content-center align-items-center">
+  <h2 class="text-center my-4" >Compra tu pokemon favorito</h2>
+  <%= image_tag('pokebola.png', alt: 'Pokéball', class:"profile-image-icon ms-2") %>
+</div>
+<div class="d-flex justify-content-around flex-wrap">
+  <% @pokemons['details'].each do |pokemon|%>
+    <div class="card my-3" style="width: 18rem;">
+      <%= image_tag pokemon['sprites']['other']['official-artwork']['front_default'], class:"card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title text-center"><%= pokemon['forms'][0]['name'] %></h5>
+          <div class="d-flex justify-content-between mb-2">
+            <div>
+              <label><strong>Tipo:</strong></label>
+              <label>|<%= pokemon['types'][0]['type']['name'] %>|</label> 
+            </div>
+            <div>
+              <label><strong>Precio: </strong></label>
+              <label>$ <%= pokemon['weight'] %>.00</label>
+            </div>
+          </div>
+          <button type="button" class="btn btn-success w-100 my-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop-<%=pokemon['id']%>">
+            Comprar
+          </button>
+        </div>
+    </div>
+    <div class="modal fade" id="staticBackdrop-<%=pokemon['id']%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="staticBackdropLabel">Información de la compra</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= form_tag api_stripe_create_payments_path, method: :post, multipart: true do %>
+              <div>
+                <div class="form-group mb-4">
+                  <label>Pokemon</label>
+                  <%= text_field_tag :name_pokemon,nil, class: "form-control h-25", value:pokemon['forms'][0]['name'], readonly: true %>
+                </div>
+                <div class="row my-4">
+                  <div class="col-sm-6">
+                    <label>Tipo</label>
+                    <%= text_field_tag :tipo, nil, class: "form-control", value:pokemon['types'][0]['type']['name'], readonly: true %>
+                  </div>
+                  <div class="col-sm-6">
+                    <label>Precio</label>
+                    <%= text_field_tag :precio_show,nil, class: "form-control", value:"$ #{pokemon['weight']}.00", disabled: true%>
+                  </div>
+                </div>
+                <%= hidden_field_tag :precio,nil, class: "form-control", value:"#{pokemon['weight']}"%>
+                <%= hidden_field_tag :id_pokemon,nil, class: "form-control", value:"#{pokemon['id']}"%>
+                <%= hidden_field_tag :url_image,nil, class: "form-control", value:"#{pokemon['sprites']['other']['official-artwork']['front_default']}"%>
+              </div>
+              <hr>
+              <h4>Proceso de compra</h4>
+              <div class="form-group my-4">
+                <label for="email">Correo electrónico</label>
+                <%= text_field_tag :email,nil, class: "form-control", placeholder:"Ingrese su correo electrónico", required: true%>
+              </div>
+              <div class="row my-4">
+                <div class="col-sm-8">
+                  <label for="cardNumber">Número de tarjeta</label>
+                  <%= text_field_tag :cardNumber,nil, class: "form-control", placeholder:"Ingrese el número de tarjeta", required: true%>
+                </div>
+                <div class="col-sm-4">
+                  <label for="cvv">Código CVV</label>
+                  <%= text_field_tag :cvv,nil, class: "form-control", placeholder:"Ingrese el código CVV de 3 dígitos", required: true%>
+                </div>
+              </div>
+              <div class="row my-4">
+                <div class="col-sm-6">
+                  <label for="expirationYear">Año de expiración</label>
+                  <%= text_field_tag :year,nil, class: "form-control", placeholder:"Año", required: true%>
+                </div>
+                <div class="col-sm-6">
+                  <label for="expirationMonth">Mes de expiración</label>
+                  <%= text_field_tag :Mounth,nil, class: "form-control", placeholder:"Mes", required: true%>
+                </div>
+              </div>
+              <div class="form-group my-4">
+                <label for="cardName">Nombre en la tarjeta</label>
+                <%= text_field_tag :cardName,nil, class: "form-control", placeholder:"Ingrese el nombre en la tarjeta", required: true%>
+              </div>
+              <div class="row my-4">
+                <div class="col-md-6">
+                  <label for="country">País</label>
+                  <%= text_field_tag :country,nil, class: "form-control", placeholder:"Ingrese el país", required: true%>                 
+                </div>
+                <div class="col-md-6">
+                  <label for="region">Región</label>
+                  <%= text_field_tag :region,nil, class: "form-control", placeholder:"Ingrese la región", required: true%>                 
+                </div>
+              </div>
+              <%= button_tag "Pagar", class: "btn btn-success ms-1 w-100" %>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  
+</div>
+<div class="d-flex justify-content-around align-items-center my-4">
+  <% if @pokemons['previous'].present? %>
+    <%= link_to 'Pagina Anterior', change_pokemon_path(url: @pokemons['previous']), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+  <% if @pokemons['next'].present? %>
+    <%= link_to 'Siguiente Página', change_pokemon_path(url: @pokemons['next']), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+</div>
