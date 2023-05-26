@@ -34,107 +34,106 @@ rails server
 # Imagenes de mi proyecto
 
 Login
-
-![image](https://user-images.githubusercontent.com/89882027/236602761-cc21b079-89c7-4fb9-93e3-bc44701657f6.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/ab33bbc9-c836-43d3-829e-5b580cfa60f1)
 
 Registro
 
-![image](https://user-images.githubusercontent.com/89882027/236602771-f4a1574c-78f0-4f84-a1b8-3cfd66b8e49b.png)
-
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/2272036d-5835-451b-a0e8-ca294dee3568)
 
 Vista al iniciar sesión
 
-![image](https://user-images.githubusercontent.com/89882027/236601990-67476d5c-2b3f-481f-8b06-3f1d554b95ff.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/178a9d74-7430-4305-abe9-a457e6a5cc0c)
 
 Crear historia
 
-![image](https://user-images.githubusercontent.com/89882027/236602004-d5bdd5a3-017e-4803-ae56-a358031d650e.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/0b08b677-63c5-46f7-bd66-791ad837dddf)
 
 Ver historias
 
-![image](https://user-images.githubusercontent.com/89882027/236602031-32d8b93f-4b72-43bf-b8d1-2d793a571ccf.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/ecd9b48e-6ff9-4762-97a0-3fd95e9629eb)
 
 Publicación
 
-![image](https://user-images.githubusercontent.com/89882027/236602087-a586cc03-57dd-4273-868e-664c2fad9930.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/aa603f9e-266c-4aa0-ae31-3f7f1b89b83b)
 
 Crear publicación
 
-![image](https://user-images.githubusercontent.com/89882027/236602741-b2ada8c2-9e76-474b-8359-9c261269e9d8.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/f9473097-8c55-42cd-aaf6-c62491582a48)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/1d6b383f-06fe-48b5-acf5-25057bb3eef9)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/f21022e0-1a9b-4fcb-b45e-6354766dea57)
+
 
 Me gusta y comentar
 
-![image](https://user-images.githubusercontent.com/89882027/236602115-df84c5b0-9028-45bd-8820-bac02dc1916d.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/93297b5c-a889-4f60-97aa-2c6a5c4823dd)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/847feca3-906e-4113-b5ed-470df0f24510)
+
 
 Agregando comentario
 
-![image](https://user-images.githubusercontent.com/89882027/236602124-fbf8a48e-8def-4140-9840-2237b6f4cd24.png)
-
-![image](https://user-images.githubusercontent.com/89882027/236602179-04302fc9-64e0-46d2-9c38-959da7897945.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/f66f2b86-bc57-4a2f-863f-330ab4e13768)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/fe5732ab-42f4-44cf-a6a4-e4044db42e96)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/fa25b0be-fe38-4b5d-b57f-3709237efcb2)
 
 Compartir publicación
 
-![image](https://user-images.githubusercontent.com/89882027/236602192-12086c0f-8a48-42dc-90e7-7b2640215e39.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/6ab1f771-2f5f-44ae-b30a-957bcc8a9f28)
 
 Publicación compartida
 
-![image](https://user-images.githubusercontent.com/89882027/236602215-9605f914-eafd-4cf1-b92b-5ff75a7cd14d.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/d5e23a6b-11cd-446b-8f9b-8dbc0fad6be5)
 
 Ver publicación
 
-![image](https://user-images.githubusercontent.com/89882027/236602235-5c56f364-c1d1-4b43-a860-4245baa5a674.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/f89812ec-3c6b-41f9-8e10-fb0bc8a90f6a)
 
 Ver y crear mis paginas
 
-![image](https://user-images.githubusercontent.com/89882027/236602280-3b5ee578-9ef6-448e-a2a5-54936be5037f.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/2d12339f-d9dd-45d1-97f0-bd031f262402)
 
 Cerrar sesión, ver perfil, y cambiar entre perfiles
 
-![image](https://user-images.githubusercontent.com/89882027/236602314-98fbddba-2d0b-403b-bbeb-003600588a48.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/5e85dd98-f6a3-4fac-89fb-46bc9416056a)
 
 Buscar Amigos
 
-![image](https://user-images.githubusercontent.com/89882027/236602347-0bdae353-68ad-4112-8b41-f87ec97a8bdb.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/f78d79d8-86f6-4f70-aef2-18a0fc81d8ca)
 
 Perfil usuario
 
-![image](https://user-images.githubusercontent.com/89882027/236602370-97ec2650-a037-43e3-8381-44fb2c564045.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/7c704760-3745-4637-a545-ac435db2668b)
 
 Seleccionar portada
 
-![image](https://user-images.githubusercontent.com/89882027/236602392-a5af7e30-8988-4e52-889c-28e9ed176a62.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/b3dce696-eb6e-4d22-bd7d-c9e988e74896)
 
 Seleccionar perfil
 
-![image](https://user-images.githubusercontent.com/89882027/236602417-8e4809ed-ef87-47d0-8895-9fb200337099.png)
-
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/d4ff047d-2fd4-4639-9b21-7d31a1e7bf28)
 
 Editar datos del perfil
 
-![image](https://user-images.githubusercontent.com/89882027/236602428-15defd2b-933d-49b8-a1da-169877f11741.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/fa9d9e1c-082a-4bf7-9c95-a40da37f9777)
 
 Agregar historia desde el perfil 
 
-![image](https://user-images.githubusercontent.com/89882027/236602436-d93b2973-ed68-498e-acd8-7ac537e9466e.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/4d3edd5d-9b3f-4321-906a-f0fbc619662d)
 
 Vista de perfil, detalles, mis publicaciones
 
-![image](https://user-images.githubusercontent.com/89882027/236602455-65da86c5-2ba4-42b1-846c-669818bf432d.png)
-
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/a592194c-9def-4bb8-8bce-09f4e93fe659)
 
 Vista de perfil, amigos
 
-![image](https://user-images.githubusercontent.com/89882027/236602463-26545c42-cb78-4d1f-9026-9a1d92a50862.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/eed0360a-b878-439b-9796-7ddf17fe037e)
 
 Vista de todos mis amigos
 
-![image](https://user-images.githubusercontent.com/89882027/236602476-04e88c5a-fdd4-42e5-be65-1534a91f75a2.png)
-
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/33d05b5d-a90f-487c-9002-0a5a0e7eb6a4)
 
 Vista de todas mis fotos y cargar fotos
 
-![image](https://user-images.githubusercontent.com/89882027/236602482-58d3ad79-b652-482d-aad1-ec482e373116.png)
-
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/b429491e-6ac5-4e2a-9b78-4e7757876803)
 
 Cargar foto
 
@@ -142,39 +141,56 @@ Cargar foto
 
 Ver foto
 
-![image](https://user-images.githubusercontent.com/89882027/236602501-872fdea8-f47f-4813-b21b-b98665cfdb18.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/ac4582a6-f71d-4cbe-878b-13e6e5575b98)
 
 Paginas que sigo
 
-![image](https://user-images.githubusercontent.com/89882027/236602516-79676c86-789e-41cd-8247-0a7f8c68a7e9.png)
-
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/bd311e9e-ba55-4759-bda1-eb4feefdec6a)
 
 Perfil de pagina
 
-![image](https://user-images.githubusercontent.com/89882027/236602532-bd2fb7dc-28ad-4b2b-b66f-de43d3d23798.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/5ab41f2e-1d54-4b19-86ce-f5aff70a658a)
 
 Perfil de paginas, detalles, publicaciones
 
-![image](https://user-images.githubusercontent.com/89882027/236602547-6e0e5c81-b414-415a-b125-2c01b0d68679.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/338b9f94-6c98-4ea0-b422-e8f61d0af824)
+
+Ver compras del usuario
+
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/3aa92627-8019-46a2-bae4-18912a9ff9dc)
 
 Vista estatica de videojuegos
 
 ![image](https://user-images.githubusercontent.com/89882027/236602574-6fc30d9f-94ae-4e7e-b0f7-8be699380b95.png)
 
+Vista tienda pokemon
+
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/099a1cd5-c329-4066-bb5a-405f55db0248)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/45660c96-cf76-4476-92de-af0c97d1d2d6)
+
+Compra tu pokemon (Uso api stripe para gestionar el pago)
+
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/4984e812-9250-424e-9646-f97ff7019bdb)
+
+
 Vista menu chats
 
-![image](https://user-images.githubusercontent.com/89882027/236602613-7e18e4c2-a6eb-4ac7-a8ef-beff882e045a.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/10f4c8f7-22bc-4e11-889a-46d0392f814a)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/d71fa886-7410-4ec0-8d45-0d13087ca942)
 
-![image](https://user-images.githubusercontent.com/89882027/236602628-a9fa1450-e7b4-4017-a19a-24b2fb89ab7a.png)
 
 Vista chat
 
-![image](https://user-images.githubusercontent.com/89882027/236602666-73ba7d8a-74ba-46d0-86f8-3c4606723c9a.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/9099071d-ef5f-45d4-97ae-629333b8c2ba)
 
 Envio mensaje
 
-![image](https://user-images.githubusercontent.com/89882027/236602681-16cdc28d-3f99-4db7-84ab-d1cf01c3ced8.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/9228357e-eefe-4718-96f9-2b2fa06e6978)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/ab42f6d0-41f2-4672-bd8e-2d2366c96ad5)
 
-![image](https://user-images.githubusercontent.com/89882027/236602688-5702e1fa-701b-4811-959d-c150cb3c8c64.png)
+Vista como pagina
 
-![image](https://user-images.githubusercontent.com/89882027/236602705-f147543e-4b21-488a-bf5f-5f4372d084f4.png)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/31502035-0012-4426-a28e-baa926453b7a)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/e131c2ad-091a-44cf-8aba-23bd673082f4)
+![image](https://github.com/josealex7/Rails-Page-facebook/assets/89882027/fd434c4c-3a5f-4bfe-ade3-b2dfbd9dad04)
+
