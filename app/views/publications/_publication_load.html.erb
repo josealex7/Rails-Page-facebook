@@ -1,0 +1,77 @@
+<div class="card d-flex flex-column flex-shrink-0 p-4 mx-2 mb-4 rounded shadow bg-white border-0">
+        <div class="card-body">
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <% if publication.user.image_profile_id %>
+                        <%= image_tag Image.find( publication.user.image_profile_id).url, class:"image-icon-publi" %>
+                    <% else %>
+                        <i class="fa fa-user"></i>
+                    <% end %>
+                </div>
+                <div class="col">
+                    <h5 class="card-title mb-0"><%= publication.user.user_type != 'page' ? publication.user.full_name : publication.user.first_name %></h5>
+                    <p class="card-text"><small class="text-muted"> <%= publication.date_publication %> </small></p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                <% if !publication.description.blank? %>
+                    <div class="mb-2">
+                        <label class="<%='font-size-publication' if publication.image_id.blank? && publication.original %>">
+                            <%= publication.description  %>
+                        </label>
+                    </div>
+                <% end %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                <% if !publication.image_id.blank? %>
+                    <%= link_to publication_path(publication.id )do%>
+                        <%= image_tag Image.find(publication.image_id).url, alt:"publicacion-imagen", class:"w-100 publications-height" %>
+                    <% end %>
+                <% end %>
+                </div>
+            </div>
+            <%= render 'publication_share/publication_main', publication: Publication.find(publication.publicationshare_ids.first)  if !publication.original  %>
+            <div class="d-flex align-items-center justify-content-between mt-3">
+                <div class="mx-2">
+                    <i class="fa fa-thumbs-up text-primary size-icon-like-comments mx-1"></i> 
+                    <label id="likes-count<%=publication.id%>" data-likes="<%= publication.likes.where(is_like: true).count %>"> 
+                        <%= publication.likes.where(is_like: true).count %> 
+                    </label>
+                </div>
+                <div class="mx-2">
+                    <%= publication.main_comments.count %>  <i class="fa fa-comments text-primary size-icon-like-comments mx-1"></i>
+                </div>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-around ">
+                <div class="col-auto">
+                    <button id="<%= !publication.exist_liked(current_user) ? 'add-like' : 'deleted-like'%>" 
+                            data-publication-id="<%= publication.id %>" 
+                            class="btn btn-<%= publication.user_liked(current_user) ? 'primary' : 'secondary' %>">
+                        <i class="fa fa-thumbs-up mx-2"></i> 
+                        Me gusta
+                    </button>
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseComment<%=publication.id%>" aria-expanded="false" aria-controls="collapseComment<%=publication.id%>">
+                        <i class="fa fa-comment mx-2"></i> Comentar
+                    </button>
+                </div>
+                
+                <div class="col-auto">
+                    <%= render 'publication_share/new_publishare', publication: publication.original ? publication : Publication.find(publication.publicationshare_ids.first), shower: true%>
+                </div>
+            </div>
+            <hr>
+            <div class="collapse" id="collapseComment<%=publication.id%>">
+                <div class="row d-flex align-items-center">
+                    <%= render 'publications/new_comment', publication: publication %>
+                </div>
+            </div>
+            <%= render 'publications/comments', publication: publication, commentLimit: 1%>
+        </div>
+    </div>
