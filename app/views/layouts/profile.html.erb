@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SmileyFace</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag 'icon-smileyface.ico' %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="bg-light">
+    <% if user_signed_in?%>
+    <%= render 'layouts/navbar'%>
+     <div class="row">
+      <div class="col-md-3  section-left-sider">
+        <%= render 'layouts/sider_left' %>
+      </div>
+      <div class="col-md-9 no-horizontal-scroll">
+        <%= render 'profile', locals: { user: @user } %>
+        <%= yield %>
+        <%= render 'users/modal_edit'%>
+      </div>
+    </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
+  </body>
+</html>
