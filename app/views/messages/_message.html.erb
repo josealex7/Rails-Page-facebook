@@ -1,16 +1,16 @@
 <div class="px-4 mt-4">
-    <% if @user_friend.image_profile_id %>
-        <%= image_tag Image.find( @user_friend.image_profile_id).url, class:"profile-image-icon" %>
-        <span class="fs-5 mx-2"><%= @user_friend.user_type != 'page'? @user_friend.full_name : @user_friend.first_name %></span>
+    <% if user_friend.image_profile_id %>
+        <%= image_tag Image.find( user_friend.image_profile_id).url, class:"profile-image-icon" %>
+        <span class="fs-5 mx-2"><%= user_friend.user_type != 'page'? user_friend.full_name : user_friend.first_name %></span>
     <% else %>
         <i class="fa fa-user fa-2x mx-2"></i>
-        <span class="fs-5 mx-2"><%= @user_friend.user_type != 'page'? @user_friend.full_name : @user_friend.first_name %></span>
+        <span class="fs-5 mx-2"><%= user_friend.user_type != 'page'? user_friend.full_name : user_friend.first_name %></span>
     <% end %>
 </div>
 <hr>
 <div class="chat-messages px-4" style="height: 744px; overflow-y: scroll;" id="all-messages">
     <% prev_time_ago = nil %>
-    <% @messages.each do |message| %>
+    <% messages.each do |message| %>
         <% user = User.find(message.sender_id) %>
         <% if prev_time_ago != time_ago_in_words(message.created_at) %>
             <div class="d-flex justify-content-center">
