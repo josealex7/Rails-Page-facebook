@@ -1,10 +1,9 @@
-<%= render 'profile', locals: { user: @user } %>
 <div class="container bg-white my-4 p-4">
     <div class="row">
         <div class="col-md-5 section-left-profile">
             <div class="d-flex flex-column flex-shrink-0 p-4 mx-2 my-4 bg-white rounded shadow" >
                 <div>
-                    <%= render 'profile/details'%>
+                    <%= render 'users/details'%>
                 </div>
             </div>
             <div class="d-flex flex-column flex-shrink-0 p-4 mx-2 my-4 bg-white rounded shadow" >
@@ -13,7 +12,7 @@
                         <h3>Fotos</h3>
                         <%= link_to 'Ver todas las fotos', profile_fotos_path, class: "btn btn-primary mb-3"%>
                     </div>
-                    <%= render 'profile/images'%>
+                    <%= render 'users/images'%>
                 </div>
             </div>
             <div class="d-flex flex-column flex-shrink-0 p-3 mx-2 my-4 bg-white rounded shadow" >
@@ -23,9 +22,9 @@
                         <%= link_to @user.user_type != 'page'? 'Ver todos los amigos': 'Ver todas las paginas', profile_friends_path, class: "btn btn-primary mb-3"%>
                     </div>
                     <% if @user.user_type != 'page' %>
-                        <%=  render 'profile/friends'%>
+                        <%=  render 'users/friends'%>
                     <% else %>
-                        <%= render 'profile/pages'%>
+                        <%= render 'users/pages'%>
                     <% end %>
                 </div>
             </div>
@@ -45,6 +44,3 @@
         
     </div>
 </div>
-
-
-<%= render 'users/modal_edit'%>
