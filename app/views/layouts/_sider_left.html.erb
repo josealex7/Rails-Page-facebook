@@ -13,13 +13,20 @@
     <% end %>
   <%end%>
   <hr>
-  <a href="/" class="d-flex align-items-center my-3 mb-md-0 me-md-auto link-dark text-decoration-none mx-2">
-    <i class="fa fa-play-circle fa-2x text-primary"></i>
-    <span class="fs-5 mx-2">Watch</span>
-  </a>
+  <% if current_user.customer.nil? %>
+    <%= link_to api_stripe_create_costumer_path, method: :post, class:"d-flex align-items-center mt-3 mb-1 link-dark text-decoration-none ms-1 me-2" do%>
+      <%= image_tag('pokebola.png', alt: 'Pokéball', class:"profile-image-icon") %>
+      <span class="fs-5 mx-2">Tienda Pokemon</span>
+    <% end %>
+  <% else %>
+    <%= link_to marketplace_path, class:"d-flex align-items-center mt-3 mb-1 link-dark text-decoration-none ms-1 me-2" do %>
+      <%= image_tag('pokebola.png', alt: 'Pokéball', class:"profile-image-icon") %>
+      <span class="fs-5 mx-2">Tienda Pokemon</span>
+    <% end %>
+  <% end %>
   <a href="/" class="d-flex align-items-center mb-md-0 me-md-auto link-dark text-decoration-none my-3 mx-2">
-    <i class="fa fa-building fa-2x text-primary"></i>
-    <span class="fs-5 mx-2">Marketplace</span>
+        <i class="fa fa-play-circle fa-2x text-primary"></i>
+    <span class="fs-5 mx-2">Watch</span>
   </a>
   <%= link_to video_games_path, class:"d-flex align-items-center mb-md-0 me-md-auto link-dark text-decoration-none my-3 mx-1" do %>
     <i class="fa fa-gamepad fa-2x text-primary"></i>
