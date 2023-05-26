@@ -1,7 +1,7 @@
 <ul class="dropdown-menu dropdown-menu-end p-3 menu-chats-navbar" aria-labelledby="messeDropdown">
     <h4 class="ps-2">Chats</h4>
     <li><hr class="dropdown-divider"></li>
-    <% @last_messages.values.take(6).each do |last_message| %>
+    <% last_messages.values.take(6).each do |last_message| %>
         <% if last_message %>
         <% friend = last_message.sender_id == current_user.id ? User.find(last_message.receiver_id) : User.find(last_message.sender_id) %>
         <%= link_to chat_friend_path(friend.id), class:"btn btn-light w-100 bg-white " do %>
@@ -33,7 +33,8 @@
     <% end %>
     <li><hr class="dropdown-divider"></li>
     <li class="reset">
-        <%= link_to 'Ver todos los chats', chat_friend_path(@last_messages.first[0]), class:"text-reset btn btn-success w-100 text-dark"%>
+        <% if current_user.friends.any? %>
+            <%= link_to 'Ver todos los chats', chat_friend_path(current_user.friends.first.id), class:"text-reset btn btn-success w-100 text-dark"%>
+        <% end %>
     </li>
-    
 </ul>
