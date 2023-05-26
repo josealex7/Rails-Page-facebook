@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light border-secondary shadow-sm sticky-top bg-white">
   <div class="container-fluid d-flex ">
-    <a class="navbar-brand logo-navbar" href="#">Facebook</a>
+    <a class="navbar-brand logo-navbar" href="#">SmileyFace</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,7 +12,7 @@
                     <a class="nav-link rounded-circle bg-light p-3" href="#" id="messeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-envelope" style="transform: scale(1.5);"></i>
                     </a>
-                    <%= render 'messages/list_friends' %>
+                    <%= render 'messages/list_friends', last_messages: @last_messages %>
                 </li>
                 <li class="nav-item dropdown mx-2">
                     <a class="nav-link rounded-circle bg-light p-3" href="#" id="notifiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
