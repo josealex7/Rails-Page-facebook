@@ -1,9 +1,8 @@
 <div class="container bg-white">
-  <!-- Sección de portada -->
   <div class="row">
     <div class="col-md-12">
       <div class="cover-photo-container mb-3">
-        <% if @user.image_portada_id %>
+        <% if @user.image_portada_id.present? %>
             <%publication_id = Publication.find_by(user:@user, image_id:@user.image_portada_id )%>
             <%= link_to publication_path(publication_id )do%>
               <%= image_tag Image.find( @user.image_portada_id).url, class:"img-fluid w-100 user-image" %>
@@ -96,8 +95,8 @@
         <li class="nav-item <%= 'active' if current_page?(profile_pages_path) %>">
             <%= link_to 'Paginas', profile_pages_path, class: "nav-link"%>
           </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Tienda</a>
+        <li class="nav-item <%= 'active' if current_page?(profile_shops_path) %>">
+          <%= link_to 'Compras', profile_shops_path, class: "nav-link"%>
         </li>
       </ul>
     </div>
