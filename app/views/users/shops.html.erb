@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-center align-items-center">
+  <h2 class="text-center my-4" >Tus compras </h2>
+  <%= image_tag('pokebola.png', alt: 'Pokéball', class:"profile-image-icon ms-2") %>
+</div>
+<div class="d-flex justify-content-around flex-wrap mx-5">
+  <% @shops.each do |pokemon|%>
+    <div class="card my-3" style="width: 18rem;">
+      <%= image_tag pokemon['metadata']['id_pokemon'], class:"card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title text-center"><%= pokemon['metadata']['pokemon_name'] %></h5>
+          <div class="d-flex justify-content-between mb-2">
+            <div>
+              <label><strong>Tipo:</strong></label>
+              <label>|<%= pokemon['metadata']['tipo'] %>|</label> 
+            </div>
+            <div>
+              <label><strong>Precio: </strong></label>
+              <label>$ <%= pokemon['metadata']['precio'] %>.00</label>
+            </div>
+          </div>
+          <button type="button" class="btn btn-success w-100 my-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop-<%=pokemon['id']%>">
+            Comprar
+          </button>
+        </div>
+    </div>
+  <% end %>
+  
+</div>
