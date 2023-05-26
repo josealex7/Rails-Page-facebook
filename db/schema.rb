@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_16_163005) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_19_161128) do
   create_table "customers", force: :cascade do |t|
     t.string "stripe_customer_id"
     t.string "name"
@@ -126,6 +126,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_16_163005) do
     t.integer "image_profile_id"
     t.integer "image_portada_id"
     t.string "user_type", default: "user", null: false
+    t.text "token"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["image_portada_id"], name: "index_users_on_image_portada_id"
